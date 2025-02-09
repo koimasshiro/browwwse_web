@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./LoadingScreen.css";
-import WebsiteContent from "../WebsiteContent/WebsiteContent";
+import Homepage from "../../pages/Homepage/Homepage";
 
 const LoadingScreen = () => {
   const counter1Ref = useRef(null);
@@ -96,7 +96,12 @@ const LoadingScreen = () => {
       },
     });
 
-    gsap.to("h1", {
+    gsap.from("section", {
+      opacity: 0,
+    })
+
+    gsap.to("section", {
+      opacity: 1,
       delay: 7,
       y: -80,
       duration: 1.5,
@@ -107,7 +112,7 @@ const LoadingScreen = () => {
 
   return (
     <div>
-      <WebsiteContent/>
+      <Homepage/>
       <div className="loading-screen" ref={loaderRef}>
         <div className="loader">
           <div className="loader-1 bar"></div>
